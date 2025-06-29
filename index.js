@@ -1,7 +1,7 @@
-// Enhanced Phone Store Script - Local Database
+//Phone Store Script 
 // This script handles fetching, displaying, searching, and viewing details for phones from a local JSON server.
 // It also manages dark mode and UI interactivity for a single-page application experience.
-// This version is for a review site (no stock or buying logic).
+// This version is for a review site (no buying logic).
 
 let allPhones = []; // Store all phones globally for filtering and rendering
 
@@ -64,11 +64,11 @@ function createPhoneCard(phone) {
         <div class="phone-info">
             <h3 class="phone-name">${phone.name}</h3>
             <div class="phone-brand">${phone.brand}</div>
-            <div class="phone-rating">⭐ ${phone.rating}/5</div>  
+            <div class="phone-rating">${phone.rating}/5</div>  
             <div class="phone-specs">
-                <span class="spec">📱 ${phone.screen}</span>
-                <span class="spec">💾 ${phone.storage}</span>
-                <span class="spec">📷 ${phone.camera}</span>
+                <span class="spec">${phone.screen}</span>
+                <span class="spec">${phone.storage}</span>
+                <span class="spec">${phone.camera}</span>
             </div>
         </div>
     `;
@@ -78,7 +78,7 @@ function createPhoneCard(phone) {
         showPhoneDetails(phone);
     });
 
-    // Add hover effects for better UX (mouseover/mouseout are distinct events)
+    // Add hover effects 
     card.addEventListener('mouseover', () => {
         card.style.transform = 'translateY(-5px)';
         card.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
@@ -132,7 +132,7 @@ function showPhoneDetails(phone) {
                     <div class="details-title">
                         <h2>${phone.name}</h2>
                         <div class="brand-year">${phone.brand} • ${phone.releaseYear}</div>
-                        <div class="rating">⭐ ${phone.rating}/5</div>
+                        <div class="rating">${phone.rating}/5</div>
                     </div>
                 </div>
                 <div class="details-body">
@@ -141,23 +141,23 @@ function showPhoneDetails(phone) {
                     </div>
                     <div class="specs-grid">
                         <div class="spec-item">
-                            <span class="spec-label">📱 Display</span>
+                            <span class="spec-label">Display</span>
                             <span class="spec-value">${phone.screen}</span>
                         </div>
                         <div class="spec-item">
-                            <span class="spec-label">💾 Storage</span>
+                            <span class="spec-label">Storage</span>
                             <span class="spec-value">${phone.storage}</span>
                         </div>
                         <div class="spec-item">
-                            <span class="spec-label">🧠 RAM</span>
+                            <span class="spec-label"> RAM</span>
                             <span class="spec-value">${phone.ram}</span>
                         </div>
                         <div class="spec-item">
-                            <span class="spec-label">📷 Camera</span>
+                            <span class="spec-label"> Camera</span>
                             <span class="spec-value">${phone.camera}</span>
                         </div>
                         <div class="spec-item">
-                            <span class="spec-label">🔋 Battery</span>
+                            <span class="spec-label"> Battery</span>
                             <span class="spec-value">${phone.battery}</span>
                         </div>
                         <div class="spec-item">
@@ -165,7 +165,7 @@ function showPhoneDetails(phone) {
                             <span class="spec-value">${phone.processor}</span>
                         </div>
                         <div class="spec-item">
-                            <span class="spec-label">🖥️ OS</span>
+                            <span class="spec-label"> OS</span>
                             <span class="spec-value">${phone.os}</span>
                         </div>
                     </div>
@@ -215,7 +215,7 @@ fetch('http://localhost:3000/phones')
         console.error('Error fetching phones:', error);
         document.getElementById('results').innerHTML = `
             <div class="error-message">
-                <h3>⚠️ Server Not Running</h3>
+                <h3>Server Not Running</h3>
                 <p>Please start the JSON server to view phones.</p>
                 <p>Run: <code>npm start</code> or use your start-server.bat file</p>
             </div>
